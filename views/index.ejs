@@ -10,6 +10,11 @@
         <nav>
         <div class="site-title">
         <p>Welcome to the Blogsite!</p>
+        <% if(!loggedIn) {%>
+<h1>YOU ARE NOT LOGGED IN</h1>
+<%        }else{%>
+    <h1>YOU ARE LOGGED IN</h1>
+    <% } %>  
     </div>
     <ul>
         
