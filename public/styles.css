@@ -1,0 +1,45 @@
+
+        body{
+            max-width: 1100px;
+            margin-right: 70px;
+            margin-left: 10px;
+            background-color: rgb(238, 78, 110);
+            font-size: large;
+        }
+        p,h1,h2,h3{
+            color: rgb(208, 200, 214);
+            position: static; left: 5;
+        }
+        a,ul{
+            color: rgb(1, 1, 78);
+        }
+        footer{
+            display: inline;
+            position: fixed; bottom: 30px; right: -50px;
+            background-color: saddlebrown;
+            opacity: .45;
+            color: rgb(255, 255, 4);
+            font-size: medium;
+            letter-spacing: 2px;
+            margin-right: 5px;
+            transform: rotate(90deg);
+            margin:0px;
+            margin-bottom: 70px;
+            
+            
+        }
+        form{
+            background-color: green;
+            color: rgb(16, 1, 27);
+            
+        }
+        input{
+            background-color: blue;
+            color: yellow;
+        }
+        button{
+            width: 145px;
+            color: purple;
+            background-color: yellowgreen;
+        }
+    

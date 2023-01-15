@@ -1,32 +1,8 @@
 <html lang ="en">
-    <head>
-        <meta charset ="UTF-8">
-        <meta name="viewport" content ="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
-        <title>Blogsite</title>
-        
-    </head>
+    <%- include('./partials/head.ejs') %>
     <body>
-        <nav>
-        <div class="site-title">
-        <p>Welcome to the Blogsite!</p>
-        <% if(!loggedIn) {%>
-<h1>YOU ARE NOT LOGGED IN</h1>
-<%        }else{%>
-    <h1>YOU ARE LOGGED IN</h1>
-    <% } %>  
-    </div>
-    <ul>
-        
-        <li><a href="/index">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Sign up</a></li>
-        <li><a href="/browse">Browse</a></li>
-        
-    </ul>
-    </nav>
+        <%- include('./partials/nav.ejs') %>
     </body>
 
-
+    <%- include('./partials/footer.ejs') %>
 </html>
