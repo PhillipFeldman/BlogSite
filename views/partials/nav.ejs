@@ -2,6 +2,12 @@
     <div class="site-title">
     <p>About the Blogsite!</p>
      <!---->
+     <% var loggedIn = false %> 
+     <% if(undefined ==accounts){ %>
+        <% accounts = {}} %> 
+     <% for (var i = 0; i< accounts.length; i++){ %>
+        <% if(accounts[i].loggedIn ==true){ %>
+            <% loggedIn = true}} %>   
     <% if(!loggedIn) {%>
         <h1>YOU ARE NOT LOGGED IN <%=loggedIn %></h1>
         <%        } else{%>
