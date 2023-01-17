@@ -57,8 +57,16 @@ app.get('/signup',(req,res)=>{
 
     })
 
-app.post('/new_account',((req,res)=>{
-    const acc = new Account(req.body.email,req.body.password,false)//req.body.<acc property>, loggedIn = false
+app.post('/signup',((req,res)=>{
+    console.log(req.body.email)
+    let obj = {email: req.body.email,
+    password: req.body.password,
+loggedIn:false,
+blogs:[]}
+    
+
+    const acc = new Account(obj)//req.body.<acc property>, loggedIn = false
+    
     acc.save().then((result)=>{res.redirect('/login')}).catch((err)=>{console.log(err)})
 console.log(req.body)
 }))

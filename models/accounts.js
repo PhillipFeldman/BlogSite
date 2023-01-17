@@ -13,6 +13,10 @@ const accSchema = new Schema({
     loggedIn:{
         type: Boolean,
         require: true
+    },
+    blogs:{
+        type: Array,
+        require: true
     }
 },
 {
