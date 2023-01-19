@@ -71,6 +71,23 @@ blogs:[]}
 console.log(req.body)
 }))
 
+app.post('/login',((req,res)=>{
+    Account.find().then((result) =>{
+        var a;
+        console.log(result)
+        for(var i =0; i<result.length; i++){
+            if(result[i].email == req.body.email && result[i].password == req.body.password){
+                a = result[i]
+                a.loggedIn = true;
+                a.save().then((result1)=>{res.redirect('/')}).catch((err)=>{console.log(err)})
+                break;
+            }
+        }
+
+    }).catch((err) =>{console.log(err)})
+
+}))
+
 app.get('/login',(req,res)=>{
     Account.find().then((result) =>{
         res.render('login', {firstp:"Login to the",accounts:result})
