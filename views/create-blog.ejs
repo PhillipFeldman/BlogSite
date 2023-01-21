@@ -1,0 +1,32 @@
+<html lang ="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+
+        <% var loggedIn = false %> 
+     <% if(undefined ==accounts){ %>
+        <% accounts = {}} %> 
+     <% for (var i = 0; i< accounts.length; i++){ %>
+        <% if(accounts[i].loggedIn ==true){ %>
+            <% loggedIn = true}} %>   
+    
+    
+    <% if(loggedIn == true){ %> 
+    <div class = "create-blog">
+        <form action ="/create-blog" method ="POST">
+            <label for="title">Title</label>
+            <input type ="text" id="title" name="title" required>
+            <label for="body">body</label>
+            <input type ="textarea" id="body" name="body" required>
+            <button>create blog</button>
+        </form>
+    </div>
+    <% } else{ %> 
+        <h1>You must be logged in to create a blog</h1>
+        <% } %>     
+
+    </body>
+
+    <%- include('./partials/footer.ejs') %>
+</html>

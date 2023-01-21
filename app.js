@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const Account = require('./models/accounts')
+const Blog = require('./models/blogs')
 
 const dburi = "mongodb+srv://chillfill:BlogSiteTutorial@blogsite.k0nswrh.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(dburi).then((result)=>app.listen(3000)).catch((err)=>console.log(err));
@@ -33,6 +34,16 @@ app.get('/',(req,res)=>{//url here
 
 
     })
+
+    app.get('/create-blog',(req,res)=>{//url here
+        Account.find().then((result) =>{
+            res.render('create-blog', {firstp:"Create a Blog!",accounts:result})
+    
+        }).catch((err) =>{console.log(err)})
+    
+    
+    
+        })
 
 app.get('/index',(req,res)=>{
 res.redirect('/')})

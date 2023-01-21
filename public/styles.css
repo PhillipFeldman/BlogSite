@@ -42,4 +42,8 @@
             color: purple;
             background-color: yellowgreen;
         }
+        textarea{
+            background-color: aliceblue;
+            display: block;
+        }
     
