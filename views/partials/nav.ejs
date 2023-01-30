@@ -12,6 +12,9 @@
         <h1>YOU ARE NOT LOGGED IN <%=loggedIn %></h1>
         <%        } else{%>
             <h1>YOU ARE LOGGED IN</h1>
+            <form action ="/logout" method ="POST">
+                <button>Log out</button>
+            </form>
             <% } %>  
 </div>
 <ul>

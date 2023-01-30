@@ -121,6 +121,27 @@ app.post('/login',((req,res)=>{
                 break;
             }
         }
+        if(a==undefined){
+            console.log("login not found")
+            res.redirect('/login').catch((err)=>{console.log(err)})
+        }
+
+    }).catch((err) =>{console.log(err)})
+
+}))
+
+app.post('/logout',((req,res)=>{
+    Account.find().then((result) =>{
+        var a;
+        console.log(result)
+        for(var i =0; i<result.length; i++){
+            if(result[i].loggedIn == true){
+                a = result[i]
+                a.loggedIn = false;
+                a.save().then((result1)=>{res.redirect('/')}).catch((err)=>{console.log(err)})
+                break;
+            }
+        } 
 
     }).catch((err) =>{console.log(err)})
 
