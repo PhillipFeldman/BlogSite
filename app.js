@@ -147,6 +147,34 @@ app.post('/logout',((req,res)=>{
 
 }))
 
+
+app.post('/create-blog',((req,res)=>{
+    Account.find().then((result) =>{
+        var a;
+        console.log(result)
+        for(var i =0; i<result.length; i++){
+            if(result[i].loggedIn == true){
+                a = result[i]
+                let obj = {title: req.body.title,
+                    body: req.body.body,
+                authorID: a.id}
+                const blg = new Blog(obj)
+                a.blogs.push(blg)
+                blg.save().then((result)=>{a.save().then((result1)=>{res.redirect('/')})}).catch((err)=>{console.log(err)})
+                break;
+            }
+        } 
+
+    }).catch((err) =>{console.log(err)})
+
+
+
+
+    
+    
+    
+}))
+
 app.get('/login',(req,res)=>{
     Account.find().then((result) =>{
         res.render('login', {firstp:"Login to the",accounts:result})
