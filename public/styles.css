@@ -45,5 +45,7 @@
         textarea{
             background-color: aliceblue;
             display: block;
+            width: 800px;
+            height: 200px;
         }
     
