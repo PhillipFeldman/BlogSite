@@ -95,6 +95,19 @@ app.get('/signup',(req,res)=>{
 
     })
 
+    app.get('/browse',(req,res)=>{
+        Account.find().then((result) =>{
+            Blog.find().then((result2)=>{
+                console.log(result2)
+                res.render('browse', {firstp:"Sign up to the",accounts:result,blogs:result2})})
+            
+    
+        }).catch((err) =>{console.log(err)})
+    
+    
+    
+        })
+
 app.post('/signup',((req,res)=>{
     console.log(req.body.email)
     let obj = {email: req.body.email,
