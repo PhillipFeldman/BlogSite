@@ -6,8 +6,13 @@
         <h2>Blogs:</h2>
 <ul>
         <% for(var x =0; x<blogs.length; x++){ %>
-            <% var v = "/"+blogs[x].title[0] +"bout" %>
-            <li><a href= <%=v%> ><%=blogs[x].title %></a></li>
+            <li><a href= "/blogs/<%=blogs[x]._id%>"> <%=blogs[x].title %></a></li>
+
+
+
+            <!--Begin Toy Example-->
+            <!--<//% //var v = "/"+blogs[x].title[0] +"bout" %>
+            <li><a href= <//%=v%> ><//%=blogs[x].title %></a></li>-->
             <!--The above is a toy example. The first letter in both blogs' title is 'a'-->
             <!--So var v = /about, so clicking the link sends to /about page-->
             <!--This will be modified when I rewatch node ninja course, and figure how to go to -->

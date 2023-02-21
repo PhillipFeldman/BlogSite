@@ -1,0 +1,17 @@
+<html lang="en">
+<!--For some reason, the ./partials/head.ejs file is causing an error here,
+     trying to cast styles.css as a blog object?-->
+<body>
+  
+    <%- include("./partials/nav.ejs") %>
+  <div>
+    <h2><%= blog.title %></h2>
+    <div>
+      <p><%= blog.body %></p>
+    </div>
+    
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>

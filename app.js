@@ -94,6 +94,19 @@ app.get('/signup',(req,res)=>{
 
 
     })
+//colon : for route parameter
+    app.get('/blogs/:id', (req,res)=>{
+        Account.find().then((result2) =>{
+
+            const id = req.params.id;
+        console.log(id)
+        Blog.findById(id).then((result)=>{
+            console.log(result)
+            res.render('details',{blog:result,firstp:"You are reading this blog on",accounts:result2})
+        })
+
+        }).catch((err)=>{console.log(err)})
+    })
 
     app.get('/browse',(req,res)=>{
         Account.find().then((result) =>{
