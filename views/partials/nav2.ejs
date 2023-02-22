@@ -1,0 +1,20 @@
+<nav>
+    <div class="site-title">
+    <p><%=firstp%>  Blogsite! (Member page)</p>
+     <!---->
+     
+            <h1>YOU ARE LOGGED IN</h1>
+            <h2>Welcome, <%=account.email %></h2>
+            <form action ="/logout" method ="POST">
+                <button>Log out</button>
+            </form>
+</div>
+<ul>
+    
+    <li><a href="/index">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/browse">Browse</a></li>
+    <li><a href="/create-blog">Create Blog</a></li>
+    
+</ul>
+</nav>

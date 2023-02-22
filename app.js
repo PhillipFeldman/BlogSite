@@ -143,7 +143,7 @@ app.post('/login',((req,res)=>{
             if(result[i].email == req.body.email && result[i].password == req.body.password){
                 a = result[i]
                 a.loggedIn = true;
-                a.save().then((result1)=>{res.redirect('/')}).catch((err)=>{console.log(err)})
+                a.save().then((result1)=>{res.redirect(`/loggedin/${a._id}`)}).catch((err)=>{console.log(err)})
                 break;
             }
         }
@@ -155,6 +155,16 @@ app.post('/login',((req,res)=>{
     }).catch((err) =>{console.log(err)})
 
 }))
+
+app.get('/loggedin/:id',(req,res)=>{//url here
+    const id = req.params.id;
+        console.log(id)
+        Account.findById(id).then((result)=>{
+            console.log(result)
+            res.render('index2',{account:result,firstp:"You are reading this blog on"})
+        }).catch((err)=>{console.log(err)})
+
+    })
 
 app.post('/logout',((req,res)=>{
     Account.find().then((result) =>{
