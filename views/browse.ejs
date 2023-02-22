@@ -1,7 +1,12 @@
 <html lang ="en">
     <%- include('./partials/head.ejs') %>
     <body>
-        <%- include('./partials/nav.ejs') %>
+        <% if(firstp==="Welcome"){%>
+            <%-include('./partials/nav2.ejs')}%>
+            <%else{ %>
+            <%//- include('./partials/nav.ejs')%>
+        <%  } %>
+        <!--Something is wrong with the above ejs code-->
     <div class ="about-content">
         <h2>Blogs:</h2>
 <ul>

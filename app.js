@@ -116,10 +116,23 @@ app.get('/signup',(req,res)=>{
             
     
         }).catch((err) =>{console.log(err)})
-    
-    
-    
         })
+
+        app.get('/browse/:AccID',(req,res)=>{
+            const id = req.params.AccID;
+        //console.log(id)
+        console.log("got to here1")
+            Account.findById(id).then((result) =>{
+                console.log("got to here2")
+                Blog.find().then((result2)=>{
+                    //console.log(result2)
+                    console.log("got to here")
+                    res.render('browse', {firstp:"Welcome",account:result,blogs:result2})
+                })
+                
+        
+            }).catch((err) =>{console.log(err)})
+            })
 
 app.post('/signup',((req,res)=>{
     console.log(req.body.email)
@@ -202,13 +215,6 @@ app.post('/create-blog',((req,res)=>{
         } 
 
     }).catch((err) =>{console.log(err)})
-
-
-
-
-    
-    
-    
 }))
 
 app.get('/login',(req,res)=>{
