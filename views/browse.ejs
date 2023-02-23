@@ -2,11 +2,11 @@
     <%- include('./partials/head.ejs') %>
     <body>
         <% if(firstp==="Welcome"){%>
-            <%-include('./partials/nav2.ejs')}%>
-            <%else{ %>
-            <%//- include('./partials/nav.ejs')%>
+            <%-include('./partials/nav2.ejs')%>
+        <%}else{ %>
+            <%-include('./partials/nav.ejs')%>
         <%  } %>
-        <!--Something is wrong with the above ejs code-->
+        <!--For some reason, ejs requires the if else clause to look like this: < %}else{ %>-->
     <div class ="about-content">
         <h2>Blogs:</h2>
 <ul>
