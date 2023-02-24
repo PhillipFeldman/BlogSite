@@ -1,10 +1,16 @@
 <html lang="en">
+
+<%- include('./partials/head.ejs') %>
 <!--For some reason, the ./partials/head.ejs file is causing an error here,
      trying to cast styles.css as a blog object?-->
-     <%- include('./partials/head.ejs') %>
+     
 <body>
+    <% if(lgin==true){%>
+        <%-include('./partials/nav2.ejs')%>
+    <%}else{ %>
+        <%-include('./partials/nav.ejs')%>
+    <%  } %>
   
-    <%- include("./partials/nav.ejs") %>
   <div>
     <h2><%= blog.title %></h2>
     <div>

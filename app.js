@@ -102,7 +102,21 @@ app.get('/signup',(req,res)=>{
         console.log(id)
         Blog.findById(id).then((result)=>{
             console.log(result)
-            res.render('details',{blog:result,firstp:"You are reading this blog on",accounts:result2})
+            res.render('details',{blog:result,firstp:"You are reading this blog on",accounts:result2,lgin:false})
+        })
+
+        }).catch((err)=>{console.log(err)})
+    })
+
+    app.get('/blogs/:AccId/:BlgId', (req,res)=>{
+        const AccId = req.params.AccId;
+        Account.findById(AccId).then((result2) =>{
+
+            const BlgId = req.params.BlgId;
+        
+        Blog.findById(BlgId).then((result)=>{
+            console.log(result)
+            res.render('details',{blog:result,firstp:"You are reading this blog on",account:result2,lgin:true})
         })
 
         }).catch((err)=>{console.log(err)})

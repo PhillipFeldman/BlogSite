@@ -11,7 +11,12 @@
         <h2>Blogs:</h2>
 <ul>
         <% for(var x =0; x<blogs.length; x++){ %>
-            <li><a href= "/blogs/<%=blogs[x]._id%>"> <%=blogs[x].title %></a></li>
+            <% if(firstp==="Welcome"){%>
+                <li><a href= "/blogs/<%=account._id%>/<%=blogs[x]._id%>"> <%=blogs[x].title %></a></li>
+            <%}else{ %>
+                <li><a href= "/blogs/<%=blogs[x]._id%>"> <%=blogs[x].title %></a></li>
+            <%  } %>
+            
 
 
 
