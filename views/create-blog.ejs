@@ -1,21 +1,22 @@
 <html lang ="en">
     <%- include('./partials/head.ejs') %>
     <body>
-        <%- include('./partials/nav.ejs') %>
+        <% if(firstp==="Create a Blog!"){%>
+            <%-include('./partials/nav2.ejs')%>
+            <% var loggedIn = true %> 
+        <%}else{ %>
+            <%-include('./partials/nav.ejs')%>
+            <% var loggedIn = false %> 
+        <%  } %>
 
-
-        <% var loggedIn = false %> 
-     <% if(undefined ==accounts){ %>
-        <% accounts = {}} %> 
-     <% for (var i = 0; i< accounts.length; i++){ %>
-        <% if(accounts[i].loggedIn ==true){ %>
-            <% loggedIn = true}} %>   
+        
+      
     
     
     <% if(loggedIn == true){ %> 
-        <h1>Welcome <%=currAcc%></h1>
+        <h1>Welcome <%=account.email%></h1>
     <div class = "create-blog">
-        <form action ="/create-blog" method ="POST">
+        <form action ="/create-blog/<%=account._id%>" method ="POST">
             <label for="title">Title</label>
             <input type ="text" id="title" name="title" required>
             <label for="body">body</label>

@@ -46,7 +46,7 @@ app.get('/',(req,res)=>{//url here
             console.log(id)
             Account.find().then((result1) =>{
                 Account.findById(id).then(result2 => {
-                    res.render('create-blog', {firstp:"Create a Blog!",accounts:result1,currAcc:result2.email})
+                    res.render('create-blog', {firstp:"",accounts:result1,currAcc:result2.email})
                 })
                 
         
@@ -55,18 +55,19 @@ app.get('/',(req,res)=>{//url here
                 }
             }
             if(a){
-            res.render('create-blog', {firstp:"Create a Blog!",accounts:result})}
+            res.render('create-blog', {firstp:"You must be logged in!",accounts:result})}
     
         }).catch((err) =>{console.log(err)})
         })
 
         app.get('/create-blog/:id',(req,res)=>{//url here
+            console.log("In get create-blog/id ")
             const id = req.params.id;
             console.log(id)
-            Account.find().then((result) =>{
-                Account.findById(id).then(result1 => {
-                    res.render('create-blog', {firstp:"Create a Blog!",accounts:result,currAcc:result1})
-                })
+            Account.findById(id).then((result) =>{
+                
+                    res.render('create-blog', {firstp:"Create a Blog!",account:result})
+                
                 
         
             }).catch((err) =>{console.log(err)})   
@@ -211,22 +212,21 @@ app.post('/logout',((req,res)=>{
 }))
 
 
-app.post('/create-blog',((req,res)=>{
-    Account.find().then((result) =>{
+app.post('/create-blog/:id',((req,res)=>{
+    console.log("Here")
+    const id = req.params.id;
+    Account.findById(id).then((result) =>{
         var a;
         console.log(result)
-        for(var i =0; i<result.length; i++){
-            if(result[i].loggedIn == true){
-                a = result[i]
+        
+                a = result
                 let obj = {title: req.body.title,
                     body: req.body.body,
                 authorID: a.id}
                 const blg = new Blog(obj)
                 a.blogs.push(blg)
-                blg.save().then((result)=>{a.save().then((result1)=>{res.redirect('/')})}).catch((err)=>{console.log(err)})
-                break;
-            }
-        } 
+                blg.save().then((result)=>{a.save().then((result1)=>{res.redirect(`/loggedin/${a._id}`)})}).catch((err)=>{console.log(err)})
+                
 
     }).catch((err) =>{console.log(err)})
 }))
