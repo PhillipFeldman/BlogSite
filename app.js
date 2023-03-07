@@ -76,6 +76,17 @@ app.get('/',(req,res)=>{//url here
 app.get('/index',(req,res)=>{
 res.redirect('/')})
 
+
+
+app.get('/test/:id',(req,res)=>{
+    const id = req.params.id;
+    Account.findById(id).then((result)=>{
+        res.render('test',{account:result})
+
+    })
+    
+})
+
 app.get('/about',(req,res)=>{
     Account.find().then((result) =>{
         res.render('about', {firstp:"About the",accounts:result})
