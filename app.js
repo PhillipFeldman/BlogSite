@@ -73,6 +73,36 @@ app.get('/',(req,res)=>{//url here
             }).catch((err) =>{console.log(err)})   
             })
 
+
+            app.get('/my-blogs/:id',(req,res)=>{//url here
+                console.log("In get my-blogs/id ")
+                const id = req.params.id;
+                console.log(id)
+                Account.findById(id).then((result) =>{
+                    
+                        res.render('my-blogs', {firstp:"Your Blogs!",account:result})
+                    
+                    
+            
+                }).catch((err) =>{console.log(err)})   
+                })
+
+                app.delete('/my-blogs/:idacc/:idblg',(req,res)=>{
+
+                    console.log("In delete my-blogs/id ")
+                    const idblg = req.params.idblg;
+                    const idacc = req.params.idacc;
+                    Account.findById(idacc).then((resultacc)=>{
+                    Blog.findByIdAndDelete(idblg)
+                    .then(resultblg=>{
+                        res.json({redirect: `/my-blogs/${idacc}`})
+                    })})
+                    .catch(err=>{
+                        console.log(err)
+                    })
+
+                })
+
 app.get('/index',(req,res)=>{
 res.redirect('/')})
 

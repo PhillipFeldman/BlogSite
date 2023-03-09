@@ -1,0 +1,36 @@
+<html lang ="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        
+            <%-include('./partials/nav2.ejs')%>
+        
+        <!--For some reason, ejs requires the if else clause to look like this: < %}else{ %>-->
+    <div class ="about-content">
+        <h2>Blogs:</h2>
+<ul>
+        <% for(var x =0; x<account.blogs.length; x++){ %>
+            
+                <li><a href= "/blogs/<%=account._id%>/<%=account.blogs[x]._id%>"> <%=account.blogs[x].title %></a></li>
+                    <li><a class="delete<%=x.toString()%>" data-doc="<%=account._id+'/'+account.blogs[x]._id%>"> delete</a> </li>
+                    <script>
+                        
+                
+                        const trashcan = document.querySelector('a.delete<%=x.toString()%>')
+                        trashcan.addEventListener('click',(e)=>{const endpoint = `/my-blogs/${trashcan.dataset.doc}`;
+                    fetch(endpoint,{method:'DELETE'
+                })
+                .then((response)=>response.json())
+                .then((data)=> window.location.href=data.redirect)
+                .catch(err=>{console.log(err)})
+                    })
+                    
+                    </script>
+          
+            <% } %>
+        </ul>
+    </div>
+    
+    </body>
+    <%- include('./partials/footer.ejs') %>
+
+</html>
