@@ -15,14 +15,14 @@
                     <script>
                         
                 
-                        const trashcan = document.querySelector('a.delete<%=x.toString()%>')
-                        trashcan.addEventListener('click',(e)=>{const endpoint = `/my-blogs/${trashcan.dataset.doc}`;
-                    fetch(endpoint,{method:'DELETE'
-                })
-                .then((response)=>response.json())
-                .then((data)=> window.location.href=data.redirect)
-                .catch(err=>{console.log(err)})
-                    })
+                        const trashcan<%=x%> = document.querySelector('a.delete<%=x.toString()%>')
+            trashcan<%=x%>.addEventListener('click',(e)=>{const endpoint = `/my-blogs/${trashcan<%=x%>.dataset.doc}`;
+        fetch(endpoint,{method:'DELETE'
+    })
+    .then((response)=>response.json())
+    .then((data)=> window.location.href=data.redirect)
+    .catch(err=>{console.log(err)})
+        })
                     
                     </script>
           
