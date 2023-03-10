@@ -108,12 +108,10 @@ res.redirect('/')})
 
 
 
-app.get('/test/:id',(req,res)=>{
-    const id = req.params.id;
-    Account.findById(id).then((result)=>{
-        res.render('test',{account:result})
+app.get('/test/',(req,res)=>{
+    
+        res.render('test')
 
-    })
     
 })
 

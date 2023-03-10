@@ -1,5 +1,29 @@
 <html>
     <body>
-        <p><%=account%></p>
+        <p>Test page</p>
+        <p id="demo0"></p>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <p id="demo4"></p>
+        <p id="demo5"></p>
+        <p id="demo6"></p>
+        <p id="demo7"></p>
+        <p id="demo8"></p>
+        <p id="demo9"></p>
+
+
+        <% for(var x = 0; x<10;x++){ %>
+            
+            <button onclick="myFunction<%=x.toString()%>()"+<%=x.toString()%>>Click me <%=x.toString()%></button>
+            <script>
+                
+                function myFunction<%=x.toString()%>() {
+  document.getElementById("demo<%=x.toString()%>").innerHTML = "Hello World<%=x.toString()%>";
+}
+            </script>
+
+            <% } %>
+
     </body>
 </html>
