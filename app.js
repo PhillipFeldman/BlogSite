@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const Account = require('./models/accounts')
 const Blog = require('./models/blogs')
 
-const dburi = "mongodb+srv://chillfill:BlogSiteTutorial@blogsite.k0nswrh.mongodb.net/?retryWrites=true&w=majority"
+const dburi = ""
 mongoose.connect(dburi).then((result)=>app.listen(3000)).catch((err)=>console.log(err));
 
 app.set('view engine','ejs');
